@@ -23,20 +23,22 @@ public class DefaultValues implements SmartInitializingSingleton {
                 "ASHISH_ID",
                 "ashish",
                 passwordEncoder.encode("ashish"))
-                .addAuthority("ASHISH_AUTH1", "ADMIN");
+                .addAuthority("ASHISH_AUTH1", "USER")
+                .addAuthority("ASHISH_AUTH2", "READ")
+                .addAuthority("ASHISH_AUTH4", "ADMIN");
 
         User snigdha = new User(
                 "SNIGDHA_ID",
                 "snigdha",
                 passwordEncoder.encode("snigdha"))
-                .addAuthority("SNIGDHA_AUTH1", "READ")
-                .addAuthority("SNIGDHA_AUTH2", "WRITE");
+                .addAuthority("SNIGDHA_AUTH1", "USER")
+                .addAuthority("SNIGDHA_AUTH2", "READ");
 
         User chinmay = new User(
                 "CHINMAY_ID",
                 "chinmay",
                 passwordEncoder.encode("chinmay"))
-                .addAuthority("CHINMAY_AUTH1", "READ");
+                .addAuthority("CHINMAY_AUTH1", "USER");
 
         userService.addUser(ashish);
         userService.addUser(snigdha);

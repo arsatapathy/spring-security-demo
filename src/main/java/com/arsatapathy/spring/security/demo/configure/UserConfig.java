@@ -12,16 +12,20 @@ import org.springframework.security.provisioning.JdbcUserDetailsManager;
 
 import javax.sql.DataSource;
 
-//import static org.springframework.http.HttpMethod.GET;
-
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-public class UserDb extends WebSecurityConfigurerAdapter {
-//
-//    @Override
-//    protected void configure(HttpSecurity http) throws Exception {
-//        http.csrf().disable();
-//    }
+public class UserConfig extends WebSecurityConfigurerAdapter {
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.csrf().disable();
+        http.authorizeRequests()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin().permitAll();
+        http.httpBasic();
+    }
+
 
     @Bean
     UserDetailsService userDetailsService(DataSource dataSource) {

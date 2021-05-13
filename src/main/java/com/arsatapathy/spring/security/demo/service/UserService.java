@@ -3,7 +3,6 @@ package com.arsatapathy.spring.security.demo.service;
 import com.arsatapathy.spring.security.demo.model.User;
 import com.arsatapathy.spring.security.demo.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import java.util.LinkedList;
